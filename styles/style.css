@@ -1,34 +1,68 @@
+@font-face {
+    font-family: 'digital-7regular';
+    src: url('fonts/digital-7-webfont.woff2') format('woff2'),
+         url('fonts/digital-7-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html{
+	background-color: #bfbfbf;
+}
+
 .calculator{
 	width: 300px; height: 400px;
 	margin: 100px auto;
 
 	font-family: roboto;
-	border: 1px solid black;
+	border: 2px outset black;
+	border-radius: 10px;
+	background-color: #333333;
 }
 
-.display{
+.display-section{
 	width: 100%; height: 70px;
-	padding: 10px 30px;
+	padding: 10px 10px;
 	
 	line-height: 50px;
 	vertical-align: middle;
 	text-align: left;
-	border-bottom:1px solid black;
 }
 
-.current-number{
-	font-size: 45px;
+.display-window{
+	background-color: #ecffb3;
+    height: 100%;
+    border: 1px outset #d9ff66;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+button{
+	border-radius: 10px;
+}
+
+.current-value{
+	font-family: 'digital-7regular';
+	font-size: 40px;
 }
 
 .button-section {
 	width:100%; height:330px;
+	padding:5px;
 }
 
 .number-buttons-section{
 	display: inline-block;
-	width: 60%; height: 70%;
+	width: 67%; height: 100%;
 
-	border:1px solid black;
+}
+
+.info {
+	font-family: 'digital-7regular';
+	font-size:13px;
+    display: block;
+    margin-top: 30px;
+    color: white;
 }
 
 .operator-buttons-section{
@@ -36,14 +70,12 @@
 	width: 33%; height: 100%;
 
 	float: right;
-	border:1px solid black;
 }
 
 .utility-buttons-section{
 	display: inline-block;
 	width: 60%; height: 30%;
 
-	border:1px solid black;
 }
 
 .number-buttons-section,
@@ -52,28 +84,24 @@
 	padding:10px;
 }
 
-.number{
+.number-buttons-section button{
 	width: 28%;
-    height: 28%;
+    height: 20%;
     margin: 2.1px;
 }
 
-.operator, .result{
+.operator-buttons-section button{
 	width: 100%;
-    height: 15%;
+    height: 13%;
     margin: 2.1px 0;
 }
-.result{
-	margin-top: 30px;
-}
 
-.zero{
+.utility-buttons-section button{
 	width: 28%;
     height: 100%;
+    margin: 2.1px;
 }
 
-.clr {
-	width: 60%;
-    height: 100%;
-    margin-left: 10px;
+#undo{
+	margin-top:30px;
 }

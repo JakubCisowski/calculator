@@ -10,31 +10,34 @@
   <body>
 
     <div class="calculator">
-      <div class="display">
-        <p class="current-number"> 0 </p>
+      <div class="display-section">
+        <div class="display-window">
+          <p class="current-value"></p>
+        </div>
       </div>
       <div class="button-section">
         <div class="number-buttons-section">
-          <button class="number 7"> 7 </button>
-          <button class="number 8"> 8 </button>
-          <button class="number 9"> 9 </button>
-          <button class="number 4"> 4 </button>
-          <button class="number 5"> 5 </button>
-          <button class="number 6"> 6 </button>
-          <button class="number 1"> 1 </button>
-          <button class="number 2"> 2 </button>
-          <button class="number 3"> 3 </button>
+          <button class="number">7</button>
+          <button class="number">8</button>
+          <button class="number">9</button>
+          <button class="number">4</button>
+          <button class="number">5</button>
+          <button class="number">6</button>
+          <button class="number">1</button>
+          <button class="number">2</button>
+          <button class="number">3</button>
+          <button class="number">0</button>
+          <button id="dot" class="number">.</button>
+          <button id="result">=</button>
+          <p class='info'>Jakub Cisowski</p>
         </div>
         <div class="operator-buttons-section">
-          <button class="operator +">+</button>
-          <button class="operator -">-</button>
-          <button class="operator *">*</button>
-          <button class="operator /">/</button>
-          <button class="result">=</button>
-        </div>
-        <div class="utility-buttons-section">
-          <button class="number zero"> 0 </button>
-          <button class="utility clr"> Clear </button>
+          <button class="operator">+</button>
+          <button class="operator">-</button>
+          <button class="operator">*</button>
+          <button class="operator">/</button>
+          <button id="undo">Undo</button>
+          <button id="clr">Clear</button>
         </div>
       </div>
     </div>
