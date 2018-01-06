@@ -33,13 +33,13 @@ resultButton.addEventListener('click', () => {
 });
 
 // When clear button clicked, clears display from any content, and deletes current memory 
-let clearButton = document.querySelector('#clr');
+let clearButton = document.querySelector('#keyc');
 clearButton.addEventListener('click', () => {
 	clearAll();
 });
 
 // When undo button clicked, deletes last display value
-let undoButton = document.querySelector('#undo');
+let undoButton = document.querySelector('#keyBackspace');
 undoButton.addEventListener('click', () => {
 	if(displayedContent.textContent.charAt(displayLength-1) == '.')
 		document.querySelector("#dot").disabled = false;
@@ -220,9 +220,10 @@ function divide(a,b){
 
 // Keyboard support
 document.addEventListener('keydown', function(e){
-	let key = e.key;
-	console.log(e);
-	switch(key){
+	let keyName = e.key;
+	//console.log(keyName);
+
+	switch(keyName){
 		case "0":
 		case "1":
 		case "2":
@@ -237,13 +238,14 @@ document.addEventListener('keydown', function(e){
 		case "-":
 		case "*":
 		case "/":
-			updateDisplay(key);
+			updateDisplay(keyName);
 			break;
 		case ".":
 			if(document.querySelector("#dot").disabled == false)
-				updateDisplay(key);
+				updateDisplay(keyName);
 			break;
 		case "=":
+		case "Enter":
 				if(prevValue >= '0' && prevValue <= '9'){
 					let result = calculate(displayedContent.textContent);
 					result = checkResult(result)
@@ -284,5 +286,16 @@ document.addEventListener('keydown', function(e){
 			prevValue = displayedContent.textContent.charAt(displayLength-1);
 			break;
 	}
+	if((keyName>='0' &&  keyName<='9') || keyName=='c' || keyName=='Backspace'){
+		const myKey = document.querySelector(`.key#key${keyName}`);
+		console.log(myKey);
+		myKey.classList.add('clicked');
+	}
 });
+function removeTransition(e){
+	this.classList.remove('clicked');
+}
+
+const keys = document.querySelectorAll('.key');
+keys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
