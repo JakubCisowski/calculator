@@ -72,7 +72,7 @@ function updateDisplay(value){
 			displayLength++;
 			prevValue = value;
 		}
-		else if(prevValue >= '0' && prevValue <= '9'){
+		else if((prevValue >= '0' && prevValue <= '9') || (displayedContent.textContent=='' && value == '-')){
 			if(value == '.'){
 				displayedContent.textContent += value;
 				displayLength++;
@@ -120,7 +120,41 @@ function calculate(string) {
 	// Saves numbers and operators into arrays
 	for(let i=0; i<expressionLength; i++) {
 		let value = string.charAt(i);
-		if(value >= '0' && value <= '9'){
+
+		if(value == '-' && i==0){
+			let max = expressionLength-i;
+			numbers[numAmount] = 0;
+			let afterDot = false;
+			let digitAfterDot = 0.1;
+			i++ // ?
+			for(let j=-1; j<max; j++){
+				value = string.charAt(i);
+				if((value < '0' || value > '9') && value != '.'){
+					i--;
+					break;
+				}
+				else{
+					if(value == '.'){
+						afterDot = true;
+						i++;
+						continue;
+					}
+					if(afterDot == false){
+						numbers[numAmount] = numbers[numAmount]*10 + Number(value);
+						i++;
+					}
+					if(afterDot == true){
+						numbers[numAmount] = numbers[numAmount] + Number(value)*digitAfterDot;
+						digitAfterDot *= 0.1;
+						i++;
+					}
+				}
+			}
+			numbers[numAmount] *= -1;
+			numAmount++;
+		}
+
+		else if(value >= '0' && value <= '9'){
 			let max = expressionLength-i;
 			numbers[numAmount] = 0;
 			let afterDot = false;
