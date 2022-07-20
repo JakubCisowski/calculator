@@ -1,7 +1,11 @@
 # Calculator
 https://jakubcisowski.github.io/calculator/
 
-## How it works
+Simple calculator web application.
+
+![scr](https://i.imgur.com/jIkVZqS.png)
+
+## How to use it
 It works like an extended calculator. User can type any operation and calculate the result.
 
 ## Features
